@@ -72,3 +72,5 @@ RViz 中启用 `Measured door top line` 查看，话题为
 `NaN`，表示证据不足。RViz 的 `Door occlusion` 显示红色遮挡网格和
 “Occlusion / observed”文字。这个比例描述**本帧雷达可观测射线**，不能
 把未观测区域推断为真实无遮挡面积；地面高度、门面位置和点云密度会影响结果。
+
+111
