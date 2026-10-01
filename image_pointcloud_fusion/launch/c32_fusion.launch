@@ -1,0 +1,35 @@
+<launch>
+  <arg name="config" default="$(find image_pointcloud_fusion)/config/c32_oak.yaml"/>
+  <arg name="python_exec" default="$(optenv FUSION_PYTHON /usr/bin/python3)"/>
+  <arg name="model" default="$(env HOME)/catkin_ws/fusion_inbox/best.pt"/>
+  <arg name="invert_extrinsic" default="true"/>
+  <arg name="image_is_rectified" default="false"/>
+  <arg name="camera_topic" default="/stereo_inertial_publisher/color/image"/>
+  <arg name="lidar_topic" default="/velodyne_points"/>
+  <arg name="sync_slop" default="0.05"/>
+  <arg name="imgsz" default="640"/>
+  <arg name="max_hz" default="2.0"/>
+  <arg name="confidence" default="0.35"/>
+  <arg name="iou" default="0.3"/>
+  <arg name="rviz" default="false"/>
+  <arg name="rviz_config" default="$(find image_pointcloud_fusion)/rviz/c32_oak.rviz"/>
+  <node pkg="image_pointcloud_fusion" type="c32_oak_fusion.py" name="c32_fusion"
+        output="screen" launch-prefix="$(arg python_exec)" required="true">
+    <env name="OMP_NUM_THREADS" value="2"/>
+    <env name="OPENBLAS_NUM_THREADS" value="1"/>
+    <rosparam command="load" file="$(arg config)"/>
+    <param name="yolo_model_path" value="$(arg model)"/>
+    <param name="device" value="cpu"/>
+    <param name="invert_extrinsic" value="$(arg invert_extrinsic)"/>
+    <param name="image_is_rectified" value="$(arg image_is_rectified)"/>
+    <param name="camera_topic" value="$(arg camera_topic)"/>
+    <param name="lidar_topic" value="$(arg lidar_topic)"/>
+    <param name="sync_slop" value="$(arg sync_slop)"/>
+    <param name="imgsz" value="$(arg imgsz)"/>
+    <param name="max_processing_hz" value="$(arg max_hz)"/>
+    <param name="yolo_confidence" value="$(arg confidence)"/>
+    <param name="fusion_iou_threshold" value="$(arg iou)"/>
+  </node>
+  <node if="$(arg rviz)" pkg="rviz" type="rviz" name="fusion_rviz"
+        args="-d $(arg rviz_config)"/>
+</launch>

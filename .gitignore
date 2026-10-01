@@ -1,0 +1,23 @@
+# Recorded data and generated deployment archives stay on disk.
+*.bag
+*.db3
+*.zip
+
+# Python and ROS build artifacts.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+build/
+devel/
+install/
+logs/
+log/
+
+# Local editor and agent state.
+.idea/
+.vscode/
+.agents/
+.codex/
+.aws/
+.DS_Store

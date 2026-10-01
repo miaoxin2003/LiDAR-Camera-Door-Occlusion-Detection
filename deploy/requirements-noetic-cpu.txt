@@ -1,0 +1,16 @@
+# Ubuntu 20.04 x86_64, /usr/bin/python3 (3.8), venv --system-site-packages.
+# Install torch==2.2.2+cpu and torchvision==0.17.2+cpu from the PyTorch CPU index FIRST.
+numpy==1.24.4
+opencv-python==4.10.0.84
+open3d==0.18.0
+ultralytics==8.3.0
+scipy==1.10.1
+matplotlib==3.7.5
+pandas==2.0.3
+seaborn==0.13.2
+Pillow==10.4.0
+PyYAML==6.0.2
+rospkg==1.5.1
+catkin-pkg==1.0.0
+empy==3.3.4
+

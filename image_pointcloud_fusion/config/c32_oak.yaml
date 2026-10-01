@@ -1,0 +1,90 @@
+# Extracted from bag_0912_152646.bag. The original bag and calibration TXT are unchanged.
+camera_topic: /stereo_inertial_publisher/color/image
+lidar_topic: /velodyne_points
+camera_info_topic: /camera_info
+camera_frame: oak_rgb_camera_optical_frame
+lidar_frame: velodyne
+image_width: 1280
+image_height: 720
+distortion_model: plumb_bob
+camera_matrix: [1037.8152830113024, 0.0, 662.0184000152576,
+                0.0, 1037.3987810093042, 345.1983182440506,
+                0.0, 0.0, 1.0]
+dist_coeffs: [0.197894310531487, -0.3619117732251506,
+              -0.0025906913757772635, 0.01007970097041047, 0.0]
+rectification_matrix: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+projection_matrix: [1059.0867919921875, 0.0, 674.6850258587292, 0.0,
+                    0.0, 1072.4005126953125, 343.2899240904226, 0.0,
+                    0.0, 0.0, 1.0, 0.0]
+
+# Literal FIRST matrix from calibration_2026_9_13_3_27_59.txt.
+# The label says lidar->camera, but it gives vertical scan lines on this bag.
+# Default invert=true uses its inverse (approximately the file's second matrix),
+# which is a more plausible orientation in the offline preview, NOT proof of accuracy.
+extrinsic_matrix: [0.013392, 0.00950979, 0.999865, -0.0228991,
+                   -0.999908, 0.00220851, 0.0133715, -0.014805,
+                   -0.00208105, -0.999952, 0.00953849, -0.0759145,
+                   0.0, 0.0, 0.0, 1.0]
+invert_extrinsic: true
+# Selects the projection model only; this flag does not undistort image pixels.
+# Raw uses K+D. Set true only for a stream actually rectified with the above R/P.
+image_is_rectified: false
+sync_slop: 0.05
+
+# CPU starting values; measured performance on the actual robot is still needed.
+device: cpu
+imgsz: 416
+yolo_confidence: 0.35
+max_detections: 50
+torch_threads: 2
+max_processing_hz: 2.0
+max_range: 15.0
+voxel_size: 0.05
+crop_to_camera: true
+frustum_margin_pixels: 32
+projection_point_stride: 2
+color_range: 8.0
+
+# HDL-32E here ONLY selects the original algorithm's radial clustering schedule.
+# It does not configure a driver or claim that the C32 is a Velodyne device.
+sensor_model: HDL-32E
+leaf: 1
+z_axis_min: -0.5
+z_axis_max: 1.8
+cluster_size_min: 3
+cluster_size_max: 5000
+fusion_iou_threshold: 0.3
+marker_lifetime: 1.5
+
+# For YOLO boxes without a matched cluster, localize supported LiDAR points
+# directly in the image ROI. These boxes mark observed surface patches, not
+# verified object shape. Ambiguous or empty ROIs produce no 3D marker.
+roi_localization_enabled: true
+roi_min_points: 8
+roi_depth_band: 0.4
+roi_ambiguity_ratio: 0.7
+
+# Door top: accept LiDAR points within 1 cm of a fitted 3D line.
+# Split adjacent image-ordered inliers at camera-depth jumps above 12 cm.
+# Smooth successive measured endpoints with a 0.35 new-frame weight.
+# The line endpoints are limited to measured inliers. The plane below it is
+# constructed geometry, not a measured point-cloud surface. Ground Z is in
+# the velodyne frame and was estimated from this bag; recalibrate if mounting
+# height or ground level changes.
+door_geometry_enabled: true
+door_class_name: menkuang
+door_line_tolerance_m: 0.01
+door_line_min_points: 12
+door_line_min_span_ratio: 0.75
+door_max_depth_jump_m: 0.12
+door_smoothing_alpha: 0.35
+door_ground_z: -1.17
+
+# Classify each door-area cell using raw LiDAR rays. Returns more than 15 cm
+# before the virtual plane count as blocked. The outer 10 cm is ignored to
+# avoid treating the frame and floor as occluding objects. Cells without a
+# return remain unknown and are excluded from the occlusion ratio.
+door_occlusion_cell_size_m: 0.15
+door_occlusion_range_margin_m: 0.15
+door_occlusion_edge_margin_m: 0.10
+door_occlusion_min_coverage: 0.05

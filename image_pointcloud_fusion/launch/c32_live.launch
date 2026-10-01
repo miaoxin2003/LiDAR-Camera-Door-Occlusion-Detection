@@ -1,0 +1,23 @@
+<launch>
+  <arg name="rviz" default="true"/>
+  <arg name="model" default="$(env HOME)/catkin_ws/fusion_inbox/best.pt"/>
+  <arg name="python_exec" default="$(optenv FUSION_PYTHON /usr/bin/python3)"/>
+  <arg name="imgsz" default="640"/>
+  <arg name="max_hz" default="1.0"/>
+  <arg name="invert_extrinsic" default="true"/>
+  <arg name="image_is_rectified" default="false"/>
+  <arg name="camera_topic" default="/stereo_inertial_publisher/color/image"/>
+  <arg name="lidar_topic" default="/velodyne_points"/>
+  <include file="$(find image_pointcloud_fusion)/launch/c32_fusion.launch">
+    <arg name="rviz" value="$(arg rviz)"/>
+    <arg name="model" value="$(arg model)"/>
+    <arg name="python_exec" value="$(arg python_exec)"/>
+    <arg name="rviz_config" value="$(find image_pointcloud_fusion)/rviz/c32_live.rviz"/>
+    <arg name="imgsz" value="$(arg imgsz)"/>
+    <arg name="max_hz" value="$(arg max_hz)"/>
+    <arg name="invert_extrinsic" value="$(arg invert_extrinsic)"/>
+    <arg name="image_is_rectified" value="$(arg image_is_rectified)"/>
+    <arg name="camera_topic" value="$(arg camera_topic)"/>
+    <arg name="lidar_topic" value="$(arg lidar_topic)"/>
+  </include>
+</launch>

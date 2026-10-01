@@ -1,0 +1,67 @@
+Panels:
+  - Class: rviz/Displays
+    Name: Displays
+  - Class: rviz/Views
+    Name: Views
+Visualization Manager:
+  Class: ""
+  Global Options:
+    Background Color: 35; 35; 35
+    Fixed Frame: velodyne
+    Frame Rate: 15
+  Displays:
+    - Class: rviz/Grid
+      Name: Grid
+      Enabled: true
+      Plane: XY
+      Cell Size: 1
+    - Class: rviz/PointCloud2
+      Name: C32 original points
+      Enabled: true
+      Topic: /velodyne_points
+      Queue Size: 2
+      Style: Points
+      Size (Pixels): 2
+      Color Transformer: Intensity
+      Channel Name: intensity
+      Position Transformer: XYZ
+    - Class: rviz/MarkerArray
+      Name: Classified 3D boxes
+      Enabled: true
+      Marker Topic: /c32_fusion/cluster_markers
+      Queue Size: 2
+    - Class: rviz/MarkerArray
+      Name: All clusters - enable for debugging
+      Enabled: false
+      Marker Topic: /c32_fusion/all_cluster_markers
+      Queue Size: 2
+    - Class: rviz/Image
+      Name: Projection
+      Enabled: true
+      Image Topic: /c32_projection/overlay_image
+      Transport Hint: raw
+      Queue Size: 2
+    - Class: rviz/Image
+      Name: Fusion image - enable during fusion
+      Enabled: false
+      Image Topic: /c32_fusion/detection_image
+      Transport Hint: raw
+      Queue Size: 2
+  Views:
+    Current:
+      Class: rviz/Orbit
+      Distance: 10
+      Focal Point:
+        X: 2
+        Y: 0
+        Z: 0
+      Pitch: 0.45
+      Yaw: 3.1
+  Tools:
+    - Class: rviz/Interact
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+Window Geometry:
+  Width: 1280
+  Height: 800
+

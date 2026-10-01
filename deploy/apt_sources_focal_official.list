@@ -1,0 +1,8 @@
+# Recovery sources for the disposable ROS Noetic Docker container.
+# Pass this file with apt-get -o Dir::Etc::sourcelist=... -o Dir::Etc::sourceparts=-
+# so the image's inaccessible BFSU mirror configuration remains untouched.
+deb http://archive.ubuntu.com/ubuntu focal main restricted universe multiverse
+deb http://archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse
+deb http://archive.ubuntu.com/ubuntu focal-backports main restricted universe multiverse
+deb http://security.ubuntu.com/ubuntu focal-security main restricted universe multiverse
+deb [arch=amd64 signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros/ubuntu focal main

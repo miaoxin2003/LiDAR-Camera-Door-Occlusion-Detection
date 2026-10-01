@@ -1,0 +1,73 @@
+Panels:
+  - Class: rviz/Displays
+    Name: Displays
+Visualization Manager:
+  Class: ""
+  Global Options:
+    Background Color: 35; 35; 35
+    Fixed Frame: velodyne
+    Frame Rate: 10
+  Displays:
+    - Class: rviz/Grid
+      Name: Grid
+      Enabled: true
+      Plane: XY
+      Cell Size: 1
+    - Class: rviz/PointCloud2
+      Name: C32 points
+      Enabled: true
+      Topic: /velodyne_points
+      Queue Size: 1
+      Style: Points
+      Size (Pixels): 2
+      Color Transformer: Intensity
+      Channel Name: intensity
+      Position Transformer: XYZ
+    - Class: rviz/MarkerArray
+      Name: Detected 3D objects
+      Enabled: true
+      Marker Topic: /c32_fusion/cluster_markers
+      Queue Size: 1
+    - Class: rviz/MarkerArray
+      Name: YOLO point support
+      Enabled: true
+      Marker Topic: /c32_fusion/yolo_point_markers
+      Queue Size: 1
+    - Class: rviz/MarkerArray
+      Name: Measured door top line
+      Enabled: true
+      Marker Topic: /c32_fusion/door_top_line_markers
+      Queue Size: 1
+    - Class: rviz/MarkerArray
+      Name: Door position plane
+      Enabled: true
+      Marker Topic: /c32_fusion/door_plane_markers
+      Queue Size: 1
+    - Class: rviz/MarkerArray
+      Name: Door occlusion
+      Enabled: true
+      Marker Topic: /c32_fusion/door_occlusion_markers
+      Queue Size: 1
+    - Class: rviz/Image
+      Name: Live detection
+      Enabled: true
+      Image Topic: /c32_fusion/detection_image
+      Transport Hint: raw
+      Queue Size: 1
+  Views:
+    Current:
+      Class: rviz/Orbit
+      Distance: 10
+      Focal Point:
+        X: 2
+        Y: 0
+        Z: 0
+      Pitch: 0.45
+      Yaw: 3.1
+  Tools:
+    - Class: rviz/Interact
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+Window Geometry:
+  Width: 1280
+  Height: 800

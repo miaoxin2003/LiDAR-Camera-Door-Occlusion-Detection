@@ -1,0 +1,368 @@
+{
+  "bag": "D:\\document\\project\\image-pointcloud-fusion-main\\bag_0912_152646.bag",
+  "size_bytes": 1271360888,
+  "duration_seconds": 19.699638775,
+  "start_utc": "2026-09-12T07:26:46.820999+00:00",
+  "start_china": "2026-09-12T15:26:46.820999+08:00",
+  "message_count": 691,
+  "topics": {
+    "/camera_info": {
+      "type": "sensor_msgs/CameraInfo",
+      "count": 198,
+      "connections": [
+        {
+          "callerid": "/camera_info_publisher",
+          "latching": 0
+        }
+      ],
+      "frame_ids": {
+        "": 198
+      },
+      "record_rate_hz": 10.000183366814055,
+      "header_rate_hz": 10.000086025105508,
+      "header_interval_ms": {
+        "min": 99.103928,
+        "p50": 99.996566,
+        "p95": 100.18615679999999,
+        "max": 100.870132
+      },
+      "header_backwards": 0,
+      "header_zero": 0,
+      "record_minus_header_ms": {
+        "min": 0.154983,
+        "p50": 0.28538600000000003,
+        "p95": 1.0626491499999993,
+        "max": 3.015832
+      },
+      "first_header_ns": 1789198006820571422,
+      "last_header_ns": 1789198026520401954,
+      "camera_info_variants": [
+        {
+          "configuration": {
+            "height": 720,
+            "width": 1280,
+            "distortion_model": "plumb_bob",
+            "D": [
+              0.197894310531487,
+              -0.3619117732251506,
+              -0.0025906913757772635,
+              0.01007970097041047,
+              0.0
+            ],
+            "K": [
+              1037.8152830113024,
+              0.0,
+              662.0184000152576,
+              0.0,
+              1037.3987810093042,
+              345.1983182440506,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "R": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "P": [
+              1059.0867919921875,
+              0.0,
+              674.6850258587292,
+              0.0,
+              0.0,
+              1072.4005126953125,
+              343.2899240904226,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            "binning_x": 0,
+            "binning_y": 0,
+            "roi": {
+              "x_offset": 0,
+              "y_offset": 0,
+              "height": 0,
+              "width": 0,
+              "do_rectify": false
+            }
+          },
+          "count": 198
+        }
+      ]
+    },
+    "/stereo_inertial_publisher/color/image": {
+      "type": "sensor_msgs/Image",
+      "count": 296,
+      "connections": [
+        {
+          "callerid": "/stereo_inertial_publisher",
+          "latching": 0
+        }
+      ],
+      "frame_ids": {
+        "oak_rgb_camera_optical_frame": 296
+      },
+      "record_rate_hz": 15.00519192992853,
+      "header_rate_hz": 15.001738251411192,
+      "header_interval_ms": {
+        "min": 66.481581,
+        "p50": 66.765891,
+        "p95": 66.77412389999999,
+        "max": 66.805062
+      },
+      "header_backwards": 0,
+      "header_zero": 0,
+      "record_minus_header_ms": {
+        "min": 49.231593,
+        "p50": 53.0042725,
+        "p95": 59.147353,
+        "max": 63.298075
+      },
+      "first_header_ns": 1789198006800253966,
+      "last_header_ns": 1789198026464641856,
+      "image_variants": [
+        {
+          "height": 720,
+          "width": 1280,
+          "encoding": "bgr8",
+          "is_bigendian": 0,
+          "step": 3840
+        }
+      ]
+    },
+    "/velodyne_points": {
+      "type": "sensor_msgs/PointCloud2",
+      "count": 197,
+      "connections": [
+        {
+          "callerid": "/lslidar_c32_decoder_node",
+          "latching": 0
+        }
+      ],
+      "frame_ids": {
+        "velodyne": 197
+      },
+      "record_rate_hz": 10.010708799448572,
+      "header_rate_hz": 10.000980708414366,
+      "header_interval_ms": {
+        "min": 96.867,
+        "p50": 99.8075,
+        "p95": 100.4045,
+        "max": 103.072
+      },
+      "header_backwards": 0,
+      "header_zero": 0,
+      "record_minus_header_ms": {
+        "min": 22.616932,
+        "p50": 28.058174,
+        "p95": 46.01336019999998,
+        "max": 53.751859
+      },
+      "first_header_ns": 1789198006851341000,
+      "last_header_ns": 1789198026449419000,
+      "pointcloud_layout_variants": [
+        {
+          "height": 32,
+          "width": 2244,
+          "fields": [
+            {
+              "name": "x",
+              "offset": 0,
+              "datatype": 7,
+              "count": 1,
+              "INT8": 1,
+              "UINT8": 2,
+              "INT16": 3,
+              "UINT16": 4,
+              "INT32": 5,
+              "UINT32": 6,
+              "FLOAT32": 7,
+              "FLOAT64": 8
+            },
+            {
+              "name": "y",
+              "offset": 4,
+              "datatype": 7,
+              "count": 1,
+              "INT8": 1,
+              "UINT8": 2,
+              "INT16": 3,
+              "UINT16": 4,
+              "INT32": 5,
+              "UINT32": 6,
+              "FLOAT32": 7,
+              "FLOAT64": 8
+            },
+            {
+              "name": "z",
+              "offset": 8,
+              "datatype": 7,
+              "count": 1,
+              "INT8": 1,
+              "UINT8": 2,
+              "INT16": 3,
+              "UINT16": 4,
+              "INT32": 5,
+              "UINT32": 6,
+              "FLOAT32": 7,
+              "FLOAT64": 8
+            },
+            {
+              "name": "intensity",
+              "offset": 16,
+              "datatype": 7,
+              "count": 1,
+              "INT8": 1,
+              "UINT8": 2,
+              "INT16": 3,
+              "UINT16": 4,
+              "INT32": 5,
+              "UINT32": 6,
+              "FLOAT32": 7,
+              "FLOAT64": 8
+            }
+          ],
+          "point_step": 32,
+          "row_step": 71808,
+          "is_dense": false,
+          "is_bigendian": false
+        }
+      ],
+      "first_cloud_finite_points": 70067,
+      "first_cloud_xyz_min": [
+        -5.540541648864746,
+        -7.607631206512451,
+        -1.429540991783142
+      ],
+      "first_cloud_xyz_max": [
+        10.157468795776367,
+        7.957371234893799,
+        2.522341728210449
+      ],
+      "first_cloud_xyz_percentiles": [
+        [
+          -5.0091205596923825,
+          -5.55315279006958,
+          -1.2093368768692017
+        ],
+        [
+          -3.5343839168548583,
+          -3.960789680480957,
+          -0.6040112376213074
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          5.580905818939209,
+          4.263267898559571,
+          1.0371658802032473
+        ],
+        [
+          9.392570552825925,
+          7.099324655532837,
+          2.0884454250335693
+        ]
+      ]
+    }
+  },
+  "time_alignment": {
+    "definition": "For each lidar header, nearest image header minus lidar header; no offset applied",
+    "signed_image_minus_lidar_ms": {
+      "min": -18.259252,
+      "p50": 12.471672,
+      "p95": 16.2221726,
+      "max": 16.47299
+    },
+    "absolute_nearest_ms": {
+      "min": 12.471672,
+      "p50": 16.47299,
+      "p95": 18.019641999999997,
+      "max": 18.259252
+    },
+    "lidar_pairs_within_50ms": 197,
+    "lidar_pairs_within_100ms": 197,
+    "lidar_count": 197
+  },
+  "contains_tf": false,
+  "previews": [
+    {
+      "image": "sample_00_image.png",
+      "comparison": "sample_00_projection_comparison.jpg",
+      "image_stamp_ns": 1789198011732990839,
+      "lidar_stamp_ns": 1789198011750357000,
+      "image_minus_lidar_ms": -17.366161,
+      "projected_point_counts": {
+        "file T_lidar_camera | K + D": 6032,
+        "inverse T_lidar_camera | K + D": 10416,
+        "file T_lidar_camera | P + zero D": 5962,
+        "inverse T_lidar_camera | P + zero D": 10398
+      }
+    },
+    {
+      "image": "sample_01_image.png",
+      "comparison": "sample_01_projection_comparison.jpg",
+      "image_stamp_ns": 1789198016665727925,
+      "lidar_stamp_ns": 1789198016649422000,
+      "image_minus_lidar_ms": 16.305925,
+      "projected_point_counts": {
+        "file T_lidar_camera | K + D": 6036,
+        "inverse T_lidar_camera | K + D": 10414,
+        "file T_lidar_camera | P + zero D": 5964,
+        "inverse T_lidar_camera | P + zero D": 10395
+      }
+    },
+    {
+      "image": "sample_02_image.png",
+      "comparison": "sample_02_projection_comparison.jpg",
+      "image_stamp_ns": 1789198021598441079,
+      "lidar_stamp_ns": 1789198021549915000,
+      "image_minus_lidar_ms": 48.526079,
+      "projected_point_counts": {
+        "file T_lidar_camera | K + D": 6033,
+        "inverse T_lidar_camera | K + D": 10398,
+        "file T_lidar_camera | P + zero D": 5958,
+        "inverse T_lidar_camera | P + zero D": 10380
+      }
+    }
+  ],
+  "extrinsic_file_first_matrix": [
+    [
+      0.013392,
+      0.00950979,
+      0.999865,
+      -0.0228991
+    ],
+    [
+      -0.999908,
+      0.00220851,
+      0.0133715,
+      -0.014805
+    ],
+    [
+      -0.00208105,
+      -0.999952,
+      0.00953849,
+      -0.0759145
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "extrinsic_rotation_determinant": 0.9999993994260741,
+  "extrinsic_rotation_orthogonality_max_error": 6.840737358793092e-07
+}
